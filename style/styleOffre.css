@@ -127,6 +127,16 @@ footer {
 .footer-sections ul li a:hover {
   color: #ffcc00;
 }
+/* Changer la couleur du lien au survol */
+/* Effet de survol */
+footer a:hover {
+  color: #f0a500 !important;
+  text-decoration: underline !important;
+  transform: scale(1.05) !important;
+}
+
+
+
 
 /* Social Icons */
 .social-icons {

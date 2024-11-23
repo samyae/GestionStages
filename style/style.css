@@ -799,6 +799,11 @@ body {
     color: #ddd;
     line-height: 1.5;
 }
+footer a:hover {
+    color: #f0a500 !important;
+    text-decoration: underline !important;
+    transform: scale(1.05) !important;
+  }
 
 /* Formulaire simplifié */
 .complaints-form {

@@ -202,7 +202,11 @@ footer {
     font-size: 14px;
     margin-top: 20px;
 }
-
+footer a:hover {
+    color: #f0a500 !important;
+    text-decoration: underline !important;
+    transform: scale(1.05) !important;
+  }
 /* Responsiveness */
 @media (max-width: 768px) {
     .navbar .logo {

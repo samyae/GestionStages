@@ -140,7 +140,11 @@ footer {
 .footer-sections ul li a:hover {
   color: #ffcc00;
 }
-
+footer a:hover {
+  color: #f0a500 !important;
+  text-decoration: underline !important;
+  transform: scale(1.05) !important;
+}
 /* Social Icons */
 .social-icons {
   display: flex;

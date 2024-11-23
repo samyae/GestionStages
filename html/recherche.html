@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Recherche de Stage</title>
+    <link rel="stylesheet" href="./style/recherche.css">
+</head>
+<body>
+  <header>
+        <nav class="navbar">
+            <div class="logo">StageNow</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="recherche.html">Recherche</a></li>
+                <li><a href="offres.html">offres de stages </a></li>
+                <li><a href="cvs.html">CVs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="inscription.html" class="btn btn-signup">
+                    <i class="fas fa-user-plus"></i> Inscription
+                </a>
+                <a href="seconnecter.html" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Connexion
+                </a>
+            </div>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+    <!-- Section Recherche -->
+   <div class="search-container">
+    <input type="text" class="search-input" placeholder="Rechercher un stage..." />
+    <select class="sector-select">
+        <option value="">Secteur</option>
+        <!-- Options ici -->
+    </select>
+    <select class="location-select">
+        <option value="">Localisation</option>
+        <!-- Options ici -->
+    </select>
+    <select class="type-select">
+        <option value="">Type de stage</option>
+        <!-- Options ici -->
+    </select>
+    <button class="search-btn">Rechercher</button>
+</div>
+
+
+    <!-- Section Meilleurs Stages -->
+    <section class="best-internships-section">
+        <h2>Les 3 Meilleurs Stages</h2>
+        <div class="internships-cards">
+            <div class="internship-card">
+                <h3>Stage en Informatique</h3>
+                <p>Description du stage...</p>
+            </div>
+            <div class="internship-card">
+                <h3>Stage en Marketing</h3>
+                <p>Description du stage...</p>
+            </div>
+            <div class="internship-card">
+                <h3>Stage en Finance</h3>
+                <p>Description du stage...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Meilleurs CVs -->
+    <section class="best-cvs-section">
+        <h2>Les 3 Meilleurs CVs</h2>
+        <div class="cvs-cards">
+            <div class="cv-card">
+                <h3>CV de Marie</h3>
+                <p>Description du CV...</p>
+            </div>
+            <div class="cv-card">
+                <h3>CV de Paul</h3>
+                <p>Description du CV...</p>
+            </div>
+            <div class="cv-card">
+                <h3>CV de Lucie</h3>
+                <p>Description du CV...</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="footer-content">
+        <!-- Section à propos -->
+        <div class="footer-section about">
+            <h4>StageNow</h4>
+            <p>Connectez étudiants et recruteurs pour des opportunités uniques.</p>
+            <!-- Icônes des réseaux sociaux -->
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Section réclamations -->
+        <div class="footer-section complaints">
+            <h4>Réclamations</h4>
+            <form class="complaints-form">
+                <input type="text" placeholder="Nom" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Votre message..." required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bas du footer -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 StageNow. Tous droits réservés.</p>
+    </div>
+</footer>
+
+</body>
+</html>

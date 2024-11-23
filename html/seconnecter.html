@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se Connecter</title>
+    <link rel="stylesheet" href="./style/seconnecter.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">StageNow</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="recherche.html">Recherche</a></li>
+                <li><a href="offres.html">offres de stages</a></li>
+                <li><a href="cvs.html">CVs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="inscription.html" class="btn btn-signup"><i class="fas fa-user-plus"></i> Inscription</a>
+                <a href="connexion.html" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+            </div>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Left Side (Sign In) -->
+        <div class="signin-section">
+            <h1>Connexion</h1>
+            <form>
+                <label for="login">Login</label>
+                <input type="text" id="login" placeholder="Entrez votre login">
+
+                <label for="password">Mot de Passe</label>
+                <input type="password" id="password" placeholder="Entrez votre mot de passe">
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Se souvenir de moi</label>
+                </div>
+
+                <button type="submit" class="signin-btn">Se Connecter</button>
+            </form>
+        </div>
+
+        <!-- Right Side (Sign Up) -->
+        <div class="signup-section">
+            <h2>Bienvenue sur la plateforme StageNow</h2>
+            <p>Pas encore de compte ?</p>
+            <a href="inscription.html" class="btn btn-signup"><i class="fas fa-user-plus"></i> S'inscrire</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter un Stage</title>
+  <link rel="stylesheet" 
+</head>
+<body>
+
+<div class="container">
+  <h1>Ajouter une Offre de Stage</h1>
+  <form action="/ajouter-stage" method="POST">
+    <!-- Titre du Stage -->
+    <label for="titre">Titre du Stage :</label>
+    <input type="text" id="titre" name="titre" placeholder="Exemple : Développeur Web Junior" required>
+
+    <!-- Description -->
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" placeholder="Décrivez les missions et les responsabilités du poste" required></textarea>
+
+    <!-- Localisation -->
+    <label for="localisation">Localisation :</label>
+    <input type="text" id="localisation" name="localisation" placeholder="Exemple : Paris, France" required>
+
+    <!-- Durée -->
+    <label for="duree">Durée (en mois) :</label>
+    <input type="number" id="duree" name="duree" placeholder="Exemple : 6" min="1" required>
+
+    <!-- Type de Contrat -->
+    <label for="type_contrat">Type de Contrat :</label>
+    <select id="type_contrat" name="type_contrat" required>
+      <option value="">Sélectionnez...</option>
+      <option value="Stage">Stage</option>
+      <option value="Alternance">Alternance</option>
+      <option value="CDI">CDI</option>
+      <option value="CDD">CDD</option>
+    </select>
+
+    <!-- Rémunération -->
+    <label for="remuneration">Rémunération (€/mois) :</label>
+    <input type="number" id="remuneration" name="remuneration" placeholder="Exemple : 800" min="0">
+
+    <!-- Date de début -->
+    <label for="date_debut">Date de Début :</label>
+    <input type="date" id="date_debut" name="date_debut" required>
+
+    <!-- Bouton d'Envoi -->
+    <button type="submit" class="btn">Publier l'Offre</button>
+  </form>
+</div>
+
+</body>
+</html>

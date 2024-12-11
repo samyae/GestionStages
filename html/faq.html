@@ -11,23 +11,20 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand logo" href="index.html">StageNow</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="../html/index.html" class="nav-link">Accueil</a></li>
-                        <li class="nav-item"><a href="../html/recherche.html" class="nav-link">Recherche</a></li>
-                        <li class="nav-item"><a href="../html/offre.html" class="nav-link">Offres de stages</a></li>
-                    </ul>
-                    <div class="d-flex">
-                        <a href="../html/inscription.html" class="btn btn-warning me-2">Inscription</a>
-                        <a href="../html/seconnecter.html" class="btn btn-outline-light">Connexion</a>
-                    </div>
-                </div>
+        <nav class="navbar">
+            <div class="logo">StageNow</div>
+            <ul class="nav-links">
+                <li><a href="../php/index.php">Accueil</a></li>
+                <li><a href="../php/get_offres.php">Offres de stages</a></li>
+                <li><a href="../php/profil.php" class="active">Profil</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="../php/inscription.php" class="btn btn-signup">
+                    <i class="fas fa-user-plus"></i> Inscription
+                </a>
+                <a href="../html/seconnecter.html" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Connexion
+                </a>
             </div>
         </nav>
     </header>
@@ -120,8 +117,8 @@
             <div class="quick-links">
                 <h4>Liens rapides</h4>
                 <ul>
-                    <li><a href="../html/index.html" class="text-white">Accueil</a></li>
-                    <li><a href="../html/offre.html" class="text-white">Offres d'emploi</a></li>
+                    <li><a href="../php/index.php" class="text-white">Accueil</a></li>
+                    <li><a href="../php/get_offres.php" class="text-white">Offres d'emploi</a></li>
                     <li><a href="../html/faq.html" class="text-white">FAQ</a></li>
                 </ul>
             </div>

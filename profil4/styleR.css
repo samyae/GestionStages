@@ -1,0 +1,229 @@
+    /* Global styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+    
+    /* Navbar */
+    .navbar {
+        background-color: #6a1b9a; /* Violet */
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .navbar .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar .logo-img {
+        margin-right: 10px;
+    }
+    
+    .navbar .logo-text {
+        font-size: 24px;
+        color: #ffeb3b; /* Yellow */
+        font-weight: bold;
+    }
+    
+    .navbar .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .navbar .nav-links li a {
+        color: #ffeb3b; /* Yellow */
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .navbar .auth-buttons a {
+        color: #fff;
+        background-color: #ffeb3b; /* Yellow */
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    
+    .navbar .auth-buttons a:hover {
+        background-color: #fbc02d; /* Darker Yellow */
+    }
+    
+
+    /* Tab Navigation */
+    .nav-tabs {
+        border-bottom: 2px solid #6a1b9a; /* Violet */
+    }
+    
+    .nav-tabs .nav-link.active {
+        background-color: #ffeb3b; /* Yellow */
+        color: #6a1b9a; /* Violet */
+        font-weight: bold;
+    }
+    
+    .nav-tabs .nav-link {
+        color: #6a1b9a; /* Violet */
+        font-weight: bold;
+    }
+    
+    .nav-tabs .nav-link:hover {
+        background-color: #f8f9fa;
+    }
+    
+    /* Card Styles */
+    .card {
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-body {
+        background-color: #fff;
+        padding: 20px;
+    }
+    
+    .card-title {
+        color: #6a1b9a; /* Violet */
+        font-size: 24px;
+    }
+    
+    /* Buttons */
+    .btn-primary {
+        background-color: #6a1b9a; /* Violet */
+        border-color: #6a1b9a;
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        background-color: #4a148c; /* Darker Violet */
+        border-color: #4a148c;
+    }
+    
+    .btn-success {
+        background-color: #ffeb3b; /* Yellow */
+        border-color: #ffeb3b;
+    }
+    
+    .btn-success:hover {
+        background-color: #fbc02d; /* Darker Yellow */
+        border-color: #fbc02d;
+    }
+    
+    .btn-danger {
+        background-color: #d32f2f; /* Red */
+        border-color: #d32f2f;
+    }
+    
+    .btn-danger:hover {
+        background-color: #c62828; /* Darker Red */
+        border-color: #c62828;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(75deg, #6D5B98, #8B79DA); /* Dégradé violet similaire à la navbar */
+      color: white;
+      padding: 40px 20px;
+      margin-top: 50px;
+    }
+    
+    .footer-sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    
+    .footer-sections > div {
+      flex: 1 1 calc(25% - 20px);
+      min-width: 200px;
+    }
+    
+    .footer-sections h4 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #ffcc00;
+    }
+    
+    .footer-sections ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-sections ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-sections ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-sections ul li a:hover {
+      color: #ffcc00;
+    }
+    /* Changer la couleur du lien au survol */
+    /* Effet de survol */
+    footer a:hover {
+      color: #f0a500 !important;
+      text-decoration: underline !important;
+      transform: scale(1.05) !important;
+    }
+    
+    /* Appliquer le style aux titres (h4, h5, etc.) */
+    /* Appliquer le style aux titres (h4, h5, etc.) */
+    /* Appliquer le style aux titres (h4, h5, etc.) */
+    
+    
+    /* Autres styles si nécessaire */
+    
+    
+    
+    
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+    }
+    
+    .social-icon-img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-icons a:hover .social-icon-img {
+      transform: scale(1.1);
+    }
+    
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .navbar .logo {
+          font-size: 1.6rem;
+      }
+    
+      .nav-links {
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 10px;
+      }
+    
+      .footer-sections > div {
+          flex: 1 1 100%;
+          text-align: center;
+      }
+    }

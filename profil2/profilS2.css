@@ -1,0 +1,406 @@
+      /* Global styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    /* Body styles */
+    body {
+        background-color: #f4f6f9;
+        color: #333;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    /* Header styles */
+    
+    
+        /* Navbar */
+        .navbar {
+            background-color: #6a1b9a; /* Violet */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar .logo-img {
+            margin-right: 10px;
+        }
+        
+        .navbar .logo-text {
+            font-size: 24px;
+            color: #ffeb3b; /* Yellow */
+            font-weight: bold;
+        }
+        
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar .nav-links li a {
+            color: #ffeb3b; /* Yellow */
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .navbar .auth-buttons a {
+            color: #fff;
+            background-color: #ffeb3b; /* Yellow */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .navbar .auth-buttons a:hover {
+            background-color: #fbc02d; /* Darker Yellow */
+        }
+    footer {
+      background: linear-gradient(75deg, #6D5B98, #8B79DA); /* Dégradé violet similaire à la navbar */
+      color: white;
+      padding: 40px 20px;
+      margin-top: 50px;
+    }
+    
+    .footer-sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    
+    .footer-sections > div {
+      flex: 1 1 calc(25% - 20px);
+      min-width: 200px;
+    }
+    
+    .footer-sections h4 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #ffcc00;
+    }
+    
+    .footer-sections ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-sections ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-sections ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-sections ul li a:hover {
+      color: #ffcc00;
+    }
+    /* Changer la couleur du lien au survol */
+    /* Effet de survol */
+    footer a:hover {
+      color: #f0a500 !important;
+      text-decoration: underline !important;
+      transform: scale(1.05) !important;
+    }
+    
+    /* Appliquer le style aux titres (h4, h5, etc.) */
+    /* Appliquer le style aux titres (h4, h5, etc.) */
+    /* Appliquer le style aux titres (h4, h5, etc.) */
+    
+    
+    /* Autres styles si nécessaire */
+    
+    
+    
+    
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+    }
+    
+    .social-icon-img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-icons a:hover .social-icon-img {
+      transform: scale(1.1);
+    }
+    
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .navbar .logo {
+          font-size: 1.6rem;
+      }
+    
+      .nav-links {
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 10px;
+      }
+    
+      .footer-sections > div {
+          flex: 1 1 100%;
+          text-align: center;
+      }
+    }
+    /* Profile Header */
+    .profile-header {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .profile-header img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+    
+    .profile-header h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #6a1b9a;  /* Violet */
+    }
+    
+    .profile-header p {
+        font-size: 16px;
+        color: #777;
+    }
+    
+    .profile-header form {
+        margin-top: 20px;
+    }
+    
+    .profile-header input[type="file"] {
+        display: inline-block;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    .profile-header button {
+        background-color: #6a1b9a;  /* Violet */
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .profile-header button:hover {
+        background-color: #4a148c;  /* Violet foncé */
+    }
+    
+    /* Card Styles */
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px #6a1b9a;
+        background-color: #fff;
+        margin-bottom: 30px;
+    }
+    
+    .card-body {
+        padding: 30px;
+    }
+    
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #6a1b9a;  /* Violet */
+    }
+    
+    /* Form styles */
+    .form-control {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .form-control:focus {
+        border-color: #6a1b9a;  /* Violet */
+    }
+    
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #6a1b9a;  /* Violet */
+    }
+    
+    /* Modal Styles */
+    .modal-content {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .modal-header {
+        background-color: #6a1b9a;  /* Violet */
+        color: #fff;
+    }
+    
+    .modal-body {
+        padding: 30px;
+    }
+    
+    .modal-footer {
+        padding: 10px 30px;
+        text-align: right;
+    }
+    
+    .modal-footer .btn {
+        border-radius: 4px;
+    }
+    
+    .modal-footer .btn-secondary {
+        background-color: #6a1b9a;
+    }
+    
+    .modal-footer .btn-primary {
+        background-color: #6a1b9a;  /* Violet */
+    }
+    
+    /* Footer Styles */
+    footer {
+        background-color: #b39ddb;
+        color: #fff;
+        padding: 30px;
+        text-align: center;
+    }
+    
+    footer .footer-sections {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    
+    footer .footer-sections h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    footer .footer-sections ul {
+        list-style: none;
+    }
+    
+    footer .footer-sections ul li {
+        margin-bottom: 10px;
+    }
+    
+    footer .footer-sections ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    footer .footer-sections ul li a:hover {
+        color: #fbc02d;  /* Jaune */
+    }
+    
+    footer .footer-bottom {
+        font-size: 14px;
+    }
+    
+    /* Table Styles */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .table th {
+        background-color: #f3e5f5;  /* Violet clair */
+        font-weight: bold;
+    }
+    
+    .table td {
+        background-color: #fff;
+    }
+    
+    /* Badge Styles */
+    .badge-status {
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    .badge-status-success {
+        background-color: #4caf50;
+        color: #fff;
+    }
+    
+    .badge-status-danger {
+        background-color: #f44336;
+        color: #fff;
+    }
+    
+    .badge-status-warning {
+        background-color: #ff9800;
+        color: #fff;
+    }
+    /* Style global pour les éléments du formulaire désactivés */
+    .form-control:disabled {
+        background-color: #e0e0e0;  /* Fond gris clair pour les champs */
+        color: #0c0606;  /* Texte gris clair */
+        cursor: not-allowed;  /* Curseur pour indiquer que l'élément est désactivé */
+        border: 1px solid #ddd;  /* Bordure grise */
+    }
+    
+    /* Empêcher les labels de devenir gris */
+    .form-label {
+        color: #000;  /* Couleur noire pour les labels */
+    }
+    
+    /* Bouton désactivé */
+    button:disabled {
+        background-color: #b39ddb;  /* Violet clair */
+        color: #f5f5f5;  /* Texte gris clair */
+        cursor: not-allowed;  /* Curseur pour indiquer que le bouton est désactivé */
+        border: 1px solid #ccc;
+    }
+    
+    /* Désactivation des cases à cocher et boutons radio */
+    input[type="checkbox"]:disabled,
+    input[type="radio"]:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;  /* Réduire l'opacité pour les rendre visuellement désactivés */
+    }
+    
+    /* Texte et éléments désactivés */
+    p.disabled-text {
+        color: #0a0909;  /* Texte désactivé */
+    }

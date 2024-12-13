@@ -82,13 +82,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param("ssssssi", $nom, $prenom, $adresse, $email, $mot_de_passe, $telephone, $id_entreprise);
 
             if ($stmt->execute()) {
-                echo "Inscription recruteur et entreprise réussie!";
+                // Démarrer une session pour gérer la connexion de l'utilisateur
+                session_start();
+                $_SESSION['user_id'] = $conn->insert_id; // ID du recruteur
+                $_SESSION['user_type'] = 'recruteur';
+                $_SESSION['user_name'] = $nom; // Nom du recruteur (optionnel)
+            
+                // Récupérer l'ID de l'entreprise
+                $id_entreprise = $id_entreprise; // Assurez-vous que cette variable contient bien l'ID de l'entreprise
+            
+                // Redirection vers la page de profil
+                header("Location: ../html/index.php?id_entreprise=" . $id_entreprise);
+                exit();
             } else {
-                echo "Erreur lors de l'insertion du recruteur: " . $stmt->error;
+                echo "Erreur lors de l'inscription : " . $stmt->error;
             }
-        } else {
-            echo "Erreur lors de l'insertion de l'entreprise: " . $stmt->error;
-        }
+        }            
 
         $stmt->close();
     }

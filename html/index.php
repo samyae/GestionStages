@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,8 +20,12 @@
             <div class="logo">StageNow</div>
             <ul class="nav-links">
                 <li><a href="../html/index.html">Accueil</a></li>
+                <li><?php if ($type === 'recruteurs'): ?>
+                <li><a href="../html/poser_stage.html">Poser Stage</a></li>
+            <?php elseif ($type === 'stagiaire'): ?>
                 <li><a href="../html/choix.html">Recherche</a></li>
-                <li><a href="../html/offre.html">offres de stages </a></li>
+                <?php endif; ?></li>
+                
                 <li>
                 <?php
                 session_start();
@@ -37,6 +44,7 @@
                 <a href="../html/seconnecter.html" class="btn btn-login">
                     <i class="fas fa-sign-in-alt"></i> Connexion
                 </a>
+                <a href="../php/logout.php" class="btn btn-login">Déconnexion</a>
             </div>
             
         </nav>

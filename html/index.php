@@ -1,5 +1,9 @@
+<?php
+session_start();
 
-
+// Récupérer le type d'utilisateur à partir de la session, ou définir à null par défaut
+$type = $_SESSION['user_type'] ?? null;
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,26 +23,29 @@
         <nav class="navbar">
             <div class="logo">StageNow</div>
             <ul class="nav-links">
-                <li><a href="../html/index.html">Accueil</a></li>
-                <li><?php if ($type === 'recruteurs'): ?>
-                <li><a href="../html/poser_stage.html">Poser Stage</a></li>
-            <?php elseif ($type === 'stagiaire'): ?>
-                <li><a href="../html/choix.html">Recherche</a></li>
-                <?php endif; ?></li>
-                
+            <?php if (!isset($_SESSION['user_id'])): ?>
+            <li><a href="../html/index.php">Accueil</a></li>
+            <li><a href="../html/choix.php">Recherche</a></li>
+            <li><a href="../profil4/profilR4.php?id_entreprise=' . htmlspecialchars($id_entreprise) . '">Profil</a></li>
+            <?php endif; ?>
+                <?php if ($type === 'recruteur'): ?>
+                    <li><a href="../html/poser_stage.html">Poser Stage</a></li>
+                <?php elseif ($type === 'stagiaire'): ?>
+                    <li><a href="../html/choix.php">Recherche</a></li>
+                <?php endif; ?>
+
                 <li>
-                <?php
-                session_start();
-                if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'recruteur') {
-                    // Affichez un lien vers le profil avec l'ID de l'entreprise
-                    $id_entreprise = $_GET['id_entreprise'] ?? ''; // Récupérer l'ID
-                    echo '<a href="../profil4/profilR4.php?id_entreprise=' . htmlspecialchars($id_entreprise) . '"> Profil</a>';
-                }
-                ?>
+                    <?php
+                    if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'recruteur') {
+                        // Récupérer l'ID de l'entreprise
+                        $id_entreprise = $_GET['id_entreprise'] ?? ''; // Vérifiez que l'ID existe dans la requête
+                        echo '<a href="../profil4/profilR4.php?id_entreprise=' . htmlspecialchars($id_entreprise) . '">Profil</a>';
+                    }
+                    ?>
                 </li>
             </ul>
             <div class="auth-buttons">
-                <a href="../html/choix.html" class="btn btn-signup">
+                <a href="../html/choix.php" class="btn btn-signup">
                     <i class="fas fa-user-plus"></i> Inscription
                 </a>
                 <a href="../html/seconnecter.html" class="btn btn-login">

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/inscription.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        function afficherFormulaire() {
+            const params = new URLSearchParams(window.location.search);
+            const type = params.get('type');
+
+            const formStagiaire = document.getElementById('form_stagiaire');
+            const formRecruteur = document.getElementById('form_recruteur');
+
+            if (type === 'stagiaire') {
+                formStagiaire.style.display = 'block';
+                formRecruteur.style.display = 'none';
+            } else if (type === 'recruteur') {
+                formStagiaire.style.display = 'none';
+                formRecruteur.style.display = 'block';
+            } else {
+                formStagiaire.style.display = 'none';
+                formRecruteur.style.display = 'none';
+                alert('Type d’utilisateur non spécifié !');
+            }
+        }
+        window.onload = afficherFormulaire;
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">StageNow</div>
+        <ul class="nav-links">
+            <li><a href="../html/index.html">Accueil</a></li>
+            <li><a href="../html/recherche.html">Recherche</a></li>
+            <li><a href="../html/offre.html">Offres de stages</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="../html/choix.html" class="btn btn-signup"><i class="fas fa-user-plus"></i> Inscription</a>
+            <a href="../html/seconnecter.html" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- Formulaire d'inscription -->
+    <div class="signup-section">
+        <h1>Inscription</h1>
+        <div id="form_stagiaire" style="display:none;">
+            <h2>Inscription Stagiaire</h2>
+            <form action="../php/inscription.php" method="POST">
+                <input type="hidden" name="type" value="stagiaire">
+
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required placeholder="Nom du chercheur">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required placeholder="Prénom du chercheur">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Email du chercheur">
+                </div>
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="password" id="mot_de_passe" name="mot_de_passe" required placeholder="Mot de passe">
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" required placeholder="Numéro de téléphone" pattern="[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" placeholder="Ville du chercheur">
+                </div>
+                <button type="submit" class="btn-submit">S'inscrire</button>
+            </form>
+            
+        </div>
+
+        <div id="form_recruteur" style="display:none;">
+            <h2>Inscription Recruteur</h2>
+            <form action="../php/inscription.php" method="POST">
+                <input type="hidden" name="type" value="recruteur">
+
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required placeholder="Nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
+                </div>
+                <div class="form-group">
+                    <label for="nom_entreprise">Nom de l'entreprise</label>
+                    <input type="text" id="nom_entreprise" name="nom_entreprise" required placeholder="Nom de l'entreprise">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" placeholder="Adresse">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="password" id="mot_de_passe" name="mot_de_passe" required placeholder="Mot de passe">
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="Numéro de téléphone" pattern="[0-9]{10}">
+                </div>
+                <button type="submit" class="btn-submit">S'inscrire</button>
+            </form>
+            
+            
+        </div>
+    </div>
+
+    <!-- Section d'informations -->
+    <div class="signin-section">
+        <h2>Bienvenue sur StageNow</h2>
+        <p>Connectez-vous pour accéder à vos fonctionnalités personnalisées ou inscrivez-vous si vous n'avez pas encore de compte.</p>
+        <a href="../html/seconnecter.html" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white mt-5 p-4">
+    <div class="footer-sections">
+        <div class="about">
+            <h4>À propos</h4>
+            <ul>
+                <li><a href="../html/quiSommesNous.html" class="text-white">Qui sommes-nous</a></li>
+                <li><a href="../html/mission.html" class="text-white">Notre mission</a></li>
+                <li><a href="../html/index.html#team" class="text-white">Équipe</a></li>
+            </ul>
+        </div>
+        <div class="quick-links">
+            <h4>Liens rapides</h4>
+            <ul>
+                <li><a href="../html/index.html" class="text-white">Accueil</a></li>
+                <li><a href="../html/offre.html" class="text-white">Offres d'emploi</a></li>
+                <li><a href="../html/faq.html" class="text-white">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <h4>Suivez-nous</h4>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank" class="text-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank" class="text-white"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom text-center mt-3">
+        <p>&copy; 2024 MonSite. Tous droits réservés.</p>
+    </div>
+</footer>
+</body>
+</html>

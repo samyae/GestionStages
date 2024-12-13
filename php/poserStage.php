@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
     <!-- Contenu principal -->
-    <div class="container">
+   <div class="container">
         <h1>Ajouter une Offre de Stage</h1>
         <form action="poserStage.php" method="POST">
     <!-- Titre du Stage -->

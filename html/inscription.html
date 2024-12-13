@@ -52,7 +52,7 @@
         <h1>Inscription</h1>
         <div id="form_stagiaire" style="display:none;">
             <h2>Inscription Stagiaire</h2>
-            <form action="../php/inscription.php" method="POST">
+            <form action="../php/inscription.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="type" value="stagiaire">
 
                 <div class="form-group">
@@ -86,7 +86,7 @@
 
         <div id="form_recruteur" style="display:none;">
             <h2>Inscription Recruteur</h2>
-            <form action="../php/inscription.php" method="POST">
+            <form action="../php/inscription.php" method="POST" form  enctype="multipart/form-data">
                 <input type="hidden" name="type" value="recruteur">
 
                 <div class="form-group">
@@ -97,28 +97,55 @@
                     <label for="prenom">Prénom</label>
                     <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
                 </div>
-                <div class="form-group">
-                    <label for="nom_entreprise">Nom de l'entreprise</label>
-                    <input type="text" id="nom_entreprise" name="nom_entreprise" required placeholder="Nom de l'entreprise">
-                </div>
+               
                 <div class="form-group">
                     <label for="adresse">Adresse</label>
                     <input type="text" id="adresse" name="adresse" placeholder="Adresse">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="Email">
-                </div>
+              
                 <div class="form-group">
                     <label for="mot_de_passe">Mot de passe</label>
                     <input type="password" id="mot_de_passe" name="mot_de_passe" required placeholder="Mot de passe">
                 </div>
-                <div class="form-group">
-                    <label for="telephone">Numéro de téléphone</label>
-                    <input type="tel" id="telephone" name="telephone" placeholder="Numéro de téléphone" pattern="[0-9]{10}">
-                </div>
-                <button type="submit" class="btn-submit">S'inscrire</button>
-            </form>
+              
+                
+            
+            
+    
+        <!-- Nom de l'entreprise -->
+        <label for="nom_entreprise">Nom de l'entreprise:</label>
+        <input type="text" name="nom_entreprise" id="nom_entreprise" required><br><br>
+
+        <!-- Secteur -->
+        <label for="secteur">Secteur:</label>
+        <input type="text" name="secteur" id="secteur" required><br><br>
+
+        <!-- Taille -->
+        <label for="taille">Taille (nombre d'employés):</label>
+        <input type="number" name="taille" id="taille" required><br><br>
+
+        <!-- Localisation -->
+        <label for="localisation">Localisation:</label>
+        <input type="text" name="localisation" id="localisation" required><br><br>
+
+        <!-- Téléphone -->
+        <label for="telephone">Téléphone:</label>
+        <input type="text" name="telephone" id="telephone" required><br><br>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br><br>
+
+        <!-- Image -->
+        <label for="image">Logo de l'entreprise:</label>
+        <input type="file" name="image" id="image" accept="image/*" required><br><br>
+
+        <!-- Date de création -->
+        <label for="date_creation">Date de création:</label>
+        <input type="date" name="date_creation" id="date_creation" required><br><br>
+
+        <button type="submit" class="btn-submit">S'inscrire</button>
+    </form>
             
             
         </div>

@@ -1,16 +1,16 @@
 <?php
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Connexion à la base de données (assurez-vous d'avoir la bonne configuration)
+    // Connexion à la base de données
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "stageNow";
+    $dbname = "stageofppt";
 
-    // Crée une connexion
+    // Créer une connexion
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Vérifie la connexion
+    // Vérifier la connexion
     if ($conn->connect_error) {
         die("Connexion échouée: " . $conn->connect_error);
     }
@@ -20,42 +20,80 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($type == 'stagiaire') {
         // Récupération des données pour le stagiaire
-        $stagiaire_name = $_POST['stagiaire_name'];
-        $stagiaire_email = $_POST['stagiaire_email'];
-        $stagiaire_phone = $_POST['stagiaire_phone'];
-        $domaine_stage = $_POST['domaine_stage'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $email = $_POST['email'];
+        $mot_de_passe = $_POST['mot_de_passe'];
+        $telephone = $_POST['telephone'];
+        $ville = $_POST['ville'];
 
-        // Préparez et liez la requête SQL pour le stagiaire
-        $stmt = $conn->prepare("INSERT INTO stagiaire (stagiaire_name, stagiaire_email, stagiaire_phone, domaine_stage) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $stagiaire_name, $stagiaire_email, $stagiaire_phone, $domaine_stage);
+        // Préparer et exécuter la requête SQL pour le stagiaire
+        $stmt = $conn->prepare("INSERT INTO stagiaires (nom, prenom, email, mot_de_passe, telephone, ville) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $nom, $prenom, $email, $mot_de_passe, $telephone, $ville);
 
-        // Exécutez la requête
         if ($stmt->execute()) {
             echo "Inscription stagiaire réussie!";
         } else {
             echo "Erreur: " . $stmt->error;
         }
+        $stmt->close();
     } elseif ($type == 'recruteur') {
-        // Récupération des données pour le recruteur
-        $contact_name = $_POST['contact_name'];
-        $contact_email = $_POST['contact_email'];
-        $contact_phone = $_POST['contact_phone'];
-        $position = $_POST['position'];
-
-        // Préparez et liez la requête SQL pour le recruteur
-        $stmt = $conn->prepare("INSERT INTO recruteurs (contact_name, contact_email, contact_phone, position) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $contact_name, $contact_email, $contact_phone, $position);
-
-        // Exécutez la requête
-        if ($stmt->execute()) {
-            echo "Inscription recruteur réussie!";
+        // Vérification si le formulaire a été soumis et si l'image a été téléchargée
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            // Récupération du fichier et définition du chemin d'upload
+            $image = $_FILES['image']['name'];
+            $image_tmp = $_FILES['image']['tmp_name'];
+            $image_path = "../uploads/imagesEntreprise/" . basename($image);  // Chemin d'upload correct
+        
+            // Vérification de l'upload et déplacement du fichier
+            if (move_uploaded_file($image_tmp, $image_path)) {
+                echo "Image téléchargée avec succès!";
+            } else {
+                die("Erreur lors du téléchargement de l'image.");
+            }
         } else {
-            echo "Erreur: " . $stmt->error;
+            die("Aucune image téléchargée ou une erreur s'est produite lors du téléchargement.");
         }
+        
+        // Récupérer les autres données du formulaire
+        $nom_entreprise = $_POST['nom_entreprise'];
+        $secteur = $_POST['secteur'];
+        $taille = intval($_POST['taille']);
+        $localisation = $_POST['localisation'];
+        $telephone = $_POST['telephone'];
+        $email = $_POST['email'];
+        $date_creation = $_POST['date_creation'];
+
+        // Préparer la requête d'insertion pour l'entreprise
+        $stmt = $conn->prepare("INSERT INTO entreprises (nom_entreprise, secteur, taille, localisation, telephone, email, image, date_creation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssisssss", $nom_entreprise, $secteur, $taille, $localisation, $telephone, $email, $image_path, $date_creation);
+
+        if ($stmt->execute()) {
+            $id_entreprise = $conn->insert_id; // Récupérer l'ID de l'entreprise insérée
+
+            // Récupérer les données pour le recruteur
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $adresse = $_POST['adresse'];
+            $mot_de_passe = $_POST['mot_de_passe'];
+
+            // Préparer et exécuter la requête pour le recruteur
+            $stmt = $conn->prepare("INSERT INTO recruteurs (nom, prenom, adresse, email, mot_de_passe, telephone, id_entreprise) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssi", $nom, $prenom, $adresse, $email, $mot_de_passe, $telephone, $id_entreprise);
+
+            if ($stmt->execute()) {
+                echo "Inscription recruteur et entreprise réussie!";
+            } else {
+                echo "Erreur lors de l'insertion du recruteur: " . $stmt->error;
+            }
+        } else {
+            echo "Erreur lors de l'insertion de l'entreprise: " . $stmt->error;
+        }
+
+        $stmt->close();
     }
 
-    // Ferme la connexion
-    $stmt->close();
+    // Fermer la connexion
     $conn->close();
 }
-?>
+?>  

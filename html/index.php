@@ -52,7 +52,12 @@ $type = $_SESSION['user_type'] ?? null;
                 <a href="../html/seconnecter.html" class="btn btn-login">
                     <i class="fas fa-sign-in-alt"></i> Connexion
                 </a>
-                <a href="../php/logout.php" class="btn btn-login">Déconnexion</a>
+                <?php
+                // Vérifiez si l'utilisateur est inscrit
+                if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'recruteur' )  {
+                    echo '<a href="../php/logout.php" class="btn btn-login">Déconnexion</a>';
+                }
+                ?>
             </div>
             
         </nav>

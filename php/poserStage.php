@@ -1,7 +1,7 @@
 <?php
 // Connexion à la base de données
 $host = 'localhost'; // Hôte de la base de données
-$dbname = 'gestionDeStage'; // Nom de la base de données
+$dbname = 'stageofppt'; // Nom de la base de données
 $username = 'root'; // Nom d'utilisateur de la base de données
 $password = ''; // Mot de passe (par défaut vide pour XAMPP)
 
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <nav class="navbar">
             <div class="logo">StageNow</div>
             <ul class="nav-links">
-                <li><a href="../html/index.html">Accueil</a></li>
+                <li><a href="../html/index.php">Accueil</a></li>
                 <li><a href="get_offres.php">Offres de stages</a></li>
                 <li><a href="profilR.php" class="active">profil</a></li>
             </ul>

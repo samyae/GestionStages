@@ -29,7 +29,8 @@ $type = $_SESSION['user_type'] ?? null;
             <li><a href="../profil4/profilR4.php?id_entreprise=' . htmlspecialchars($id_entreprise) . '">Profil</a></li>
             <?php endif; ?>
                 <?php if ($type === 'recruteur'): ?>
-                    <li><a href="../html/poser_stage.html">Poser Stage</a></li>
+                    <li><a href="../html/index.php">Accueil</a></li>
+                    <li><a href="../php/poserStage.php">Poser Stage</a></li>
                 <?php elseif ($type === 'stagiaire'): ?>
                     <li><a href="../html/choix.php">Recherche</a></li>
                 <?php endif; ?>

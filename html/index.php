@@ -23,28 +23,55 @@ $type = $_SESSION['user_type'] ?? null;
         <nav class="navbar">
             <div class="logo">StageNow</div>
             <ul class="nav-links">
-            <?php if (!isset($_SESSION['user_id'])): ?>
             <li><a href="../html/index.php">Accueil</a></li>
+    <?php if (!isset($_SESSION['user_id'])): ?>
+        
+        <li><a href="../html/choix.php">Recherche</a></li>
+    <?php else: ?>
+        <?php if ($type === 'recruteur'): ?>
+            <li><a href="../html/index.php">Accueil</a></li>
+            <li><a href="../php/poserStage.php">Poser Stage</a></li>
+        <?php elseif ($type === 'stagiaire'): ?>
             <li><a href="../html/choix.php">Recherche</a></li>
-            <li><a href="../profil4/profilR4.php?id_entreprise=' . htmlspecialchars($id_entreprise) . '">Profil</a></li>
-            <?php endif; ?>
-                <?php if ($type === 'recruteur'): ?>
-                    <li><a href="../html/index.php">Accueil</a></li>
-                    <li><a href="../php/poserStage.php">Poser Stage</a></li>
-                <?php elseif ($type === 'stagiaire'): ?>
-                    <li><a href="../html/choix.php">Recherche</a></li>
-                <?php endif; ?>
-
-                <li>
-                    <?php
-                    if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'recruteur') {
-                        // Récupérer l'ID de l'entreprise
-                        $id_entreprise = $_GET['id_entreprise'] ?? ''; // Vérifiez que l'ID existe dans la requête
-                        echo '<a href="../profil4/profilR4.php?id_entreprise=' . htmlspecialchars($id_entreprise) . '">Profil</a>';
+            <li>
+                <?php
+                // Lien Profil pour les stagiaires
+                if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'stagiaire') {
+                    // Vérifier si 'id_candidature' est dans l'URL ou dans la session
+                    $id_candidature = $_GET['id_candidature'] ?? '';
+                    if (empty($id_candidature) && isset($_SESSION['id_candidature'])) {
+                        $id_candidature = $_SESSION['id_candidature'];
                     }
-                    ?>
-                </li>
-            </ul>
+                    if (!empty($id_candidature)) {
+                        echo '<a href="../profil2/profilS2.php?id_candidature=' . htmlspecialchars($id_candidature) . '">Profil</a>';
+                    } else {
+                        echo '<a href="#" onclick="alert(\'ID de candidature introuvable\')">Profil</a>';
+                    }
+                }
+                ?>
+            </li>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <li>
+        <?php
+        // Lien Profil pour les recruteurs
+        if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'recruteur') {
+            // Vérifier si 'id_entreprise' est dans l'URL ou dans la session
+            $id_entreprise = $_GET['id_entreprise'] ?? '';
+            if (empty($id_entreprise) && isset($_SESSION['id_entreprise'])) {
+                $id_entreprise = $_SESSION['id_entreprise'];
+            }
+            if (!empty($id_entreprise)) {
+                echo '<a href="../profil4/profilR4.php?id_entreprise=' . htmlspecialchars($id_entreprise) . '">Profil</a>';
+            } else {
+                echo '<a href="#" onclick="alert(\'ID de l\'entreprise introuvable\')">Profil</a>';
+            }
+        }
+        ?>
+    </li>
+</ul>
+
             <div class="auth-buttons">
                 <a href="../html/choix.php" class="btn btn-signup">
                     <i class="fas fa-user-plus"></i> Inscription

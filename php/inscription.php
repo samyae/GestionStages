@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -32,14 +28,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ville = $_POST['ville'];
 
         // Préparer et exécuter la requête SQL pour le stagiaire
-        $stmt = $conn->prepare("INSERT INTO stagiaires (nom, prenom, email, mot_de_passe, telephone, ville) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO chercheurs (nom, prenom, email, mot_de_passe, telephone, ville) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $nom, $prenom, $email, $mot_de_passe, $telephone, $ville);
 
         if ($stmt->execute()) {
-            echo "Inscription stagiaire réussie!";
+            // Récupérez l'ID de la candidature (si votre table utilise AUTO_INCREMENT)
+            $id_candidature = $stmt->insert_id;
+
+            // Stockez les informations nécessaires dans les variables de session
+            session_start();
+            $_SESSION['user_id'] = $id_candidature; // L'ID de la candidature
+            $_SESSION['user_type'] = 'stagiaire'; // Spécifiez le type d'utilisateur (ici, 'stagiaire')
+            $_SESSION['id_candidature'] = $id_candidature; // L'ID de la candidature
+
+            // Redirigez vers la page d'accueil avec l'ID de candidature dans l'URL
+            header("Location: ../html/index.php?id_candidature=" . htmlspecialchars($id_candidature));
+            exit; // Arrêtez l'exécution après la redirection
         } else {
             echo "Erreur: " . $stmt->error;
         }
+
         $stmt->close();
     } elseif ($type == 'recruteur') {
         // Vérification si le formulaire a été soumis et si l'image a été téléchargée
@@ -94,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
                 // Récupérer l'ID de l'entreprise
                 $id_entreprise = $id_entreprise; // Assurez-vous que cette variable contient bien l'ID de l'entreprise
-            
+             
                 // Redirection vers la page de profil
                 header("Location: ../html/index.php?id_entreprise=" . $id_entreprise);
                 exit();
@@ -109,4 +117,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Fermer la connexion
     $conn->close();
 }
-?>  
+?>     
